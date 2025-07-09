@@ -9,5 +9,26 @@ const (
 
 func main() {
 	var EURToRUB = USDToRub / USDToEUR
-	fmt.Println(EURToRUB)
+	fmt.Println("Курс евро к рублю: ", EURToRUB)
+
+	summa, ishod, celevaya := vvod()
+	result := raschet(summa, ishod, celevaya)
+	fmt.Println(result)
+}
+
+func vvod() (float64, string, string) {
+	var ishod string
+	var celevaya string
+	var summa float64
+	fmt.Println("Введите сумму: ")
+	fmt.Scan(&summa)
+	fmt.Println("Введите исходную валюту (USD, EUR, RUB): ")
+	fmt.Scan(&ishod)
+	fmt.Println("Введите исходную валюту (USD, EUR, RUB): ")
+	fmt.Scan(&celevaya)
+	return summa, ishod, celevaya
+}
+
+func raschet(summa float64, ishod, celevaya string) {
+	//logika dlya rascheta
 }
