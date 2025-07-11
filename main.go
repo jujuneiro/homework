@@ -29,6 +29,27 @@ func vvod() (float64, string, string) {
 	return summa, ishod, celevaya
 }
 
-func raschet(summa float64, ishod, celevaya string) {
-	//logika dlya rascheta
+func raschet(summa float64, ishod, celevaya string) float64 {
+	var result float64
+	switch ishod {
+	case "USD":
+		if celevaya == "EUR" {
+			result = summa * USDToEUR
+		} else if celevaya == "RUB" {
+			result = summa * USDToRub
+		}
+	case "EUR":
+		if celevaya == "EUR" {
+			result = summa / USDToEUR
+		} else if celevaya == "RUB" {
+			result = summa * USDToRub / USDToEUR
+		}
+	case "RUB":
+		if celevaya == "USD" {
+			result = summa / USDToEUR
+		} else if celevaya == "RUB" {
+			result = summa * USDToEUR / USDToRub
+		}
+	}
+	return result
 }
